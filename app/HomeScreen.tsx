@@ -1,14 +1,43 @@
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import { Button, Text, View } from "react-native";
 
+
+class Chuckjoke {
+    id : string = ""
+    value : string = ""
+}
 
 export function HomeScreen() {
 
     const navigation = useNavigation()
 
+    const [joke, setJoke] = useState("NO JOKE")
+
+    async function getapi() {
+        console.log("HÄMTA FRÅN API!!")
+
+        // https://api.chucknorris.io/jokes/random
+
+        const response = await fetch("https://api.chucknorris.io/jokes/random")
+
+        const resultjson : Chuckjoke = await response.json()
+
+        console.log(resultjson.value)
+
+        setJoke(resultjson.value)
+    }
+
+
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Home Screen är starten</Text>
+
+            <Text>{joke}</Text>
+
+            <Button title="API"
+                onPress={() => getapi()}
+            />
 
             <Button 
                 title='Go to details'
