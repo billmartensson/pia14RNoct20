@@ -12,7 +12,7 @@ export function HomeScreen() {
 
             <Button 
                 title='Go to details'
-                onPress={() => navigation.navigate('Details')}
+                onPress={() => navigation.navigate('Details', { fruit: "Banan" })}
             />
 
             <Button 

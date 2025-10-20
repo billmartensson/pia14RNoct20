@@ -13,6 +13,9 @@ const RootStack = createNativeStackNavigator({
             screen: HomeScreen,
             options: {
                 title: 'Hemmaskärm',
+                headerStyle: {
+                    backgroundColor: '#ffff00',
+                },
             },
         },
         Details: DetailsScreen,
