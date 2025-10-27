@@ -29,3 +29,16 @@ export async function APICategories() {
     return resultjson
 }
 
+export async function APICategoryJoke(category: string) {
+    console.log("HÄMTA RANDOM!!")
+
+    // https://api.chucknorris.io/jokes/random?category=food
+
+    const response = await fetch("https://api.chucknorris.io/jokes/random?category=" + category)
+
+    const resultjson: Chuckjoke = await response.json()
+
+    console.log(resultjson.value)
+
+    return resultjson.value
+}

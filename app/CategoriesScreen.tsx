@@ -25,11 +25,6 @@ export function CategoriesScreen() {
             <Text>CATEGORIES</Text>
 
             <Button
-                title='CATEGORY DETAIL'
-                onPress={() => navigation.navigate('CategoryDetail')}
-            />
-
-            <Button
                 title='RANDOM'
                 onPress={() => navigation.navigate('Random')}
             />
