@@ -3,11 +3,6 @@ import { useState } from "react";
 import { Button, Text, View } from "react-native";
 
 
-class Chuckjoke {
-    id : string = ""
-    value : string = ""
-}
-
 export function HomeScreen() {
 
     const navigation = useNavigation()
