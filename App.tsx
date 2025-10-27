@@ -1,13 +1,19 @@
 import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
+import { CategoriesScreen } from './app/CategoriesScreen';
+import { CategoryDetailScreen } from './app/CategoryDetailScreen';
 import { DetailsScreen } from './app/DetailsScreen';
 import { HomeScreen } from './app/HomeScreen';
+import { RandomScreen } from './app/RandomScreen';
+import { SavedScreen } from './app/SavedScreen';
+import { SearchDetailScreen } from './app/SearchDetailScreen';
+import { SearchScreen } from './app/SearchScreen';
 import { ThirdScreen } from './app/ThirdScreen';
 
 
 const RootStack = createNativeStackNavigator({
-    initialRouteName: 'Home',
+    initialRouteName: 'Categories',
     screens: {
         Home: {
             screen: HomeScreen,
@@ -19,7 +25,13 @@ const RootStack = createNativeStackNavigator({
             },
         },
         Details: DetailsScreen,
-        Third: ThirdScreen
+        Third: ThirdScreen,
+        Categories: CategoriesScreen,
+        CategoryDetail: CategoryDetailScreen,
+        Random: RandomScreen,
+        Search: SearchScreen,
+        SearchDetail: SearchDetailScreen,
+        Saved: SavedScreen,
     },
 });
 
