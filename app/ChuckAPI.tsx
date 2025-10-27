@@ -1,4 +1,4 @@
-import { Chuckjoke } from "./Chuckjoke"
+import { Chuckjoke, ChuckSearchResult } from "./Chuckjoke"
 
 
 export async function APIRandomJoke() {
@@ -41,4 +41,18 @@ export async function APICategoryJoke(category: string) {
     console.log(resultjson.value)
 
     return resultjson.value
+}
+
+export async function APISearch(searchtext: string) {
+    console.log("SÖK!!")
+
+    // https://api.chucknorris.io/jokes/search?query=banana
+
+    const response = await fetch("https://api.chucknorris.io/jokes/search?query=" + searchtext)
+
+    const resultjson: ChuckSearchResult = await response.json()
+
+    console.log(resultjson.result)
+
+    return resultjson.result
 }
