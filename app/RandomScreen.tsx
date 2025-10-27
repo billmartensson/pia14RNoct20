@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
-import { Chuckjoke } from "./Chuckjoke";
+import { APIRandomJoke } from "./ChuckAPI";
 
 
 export function RandomScreen() {
@@ -8,19 +8,16 @@ export function RandomScreen() {
 
     const [joke, setJoke] = useState("NO JOKE")
 
-    async function getapi() {
-        console.log("HÄMTA FRÅN API!!")
+    useEffect(() => {
+        loadrandom()
+    },[])
 
-        // https://api.chucknorris.io/jokes/random
-
-        const response = await fetch("https://api.chucknorris.io/jokes/random")
-
-        const resultjson: Chuckjoke = await response.json()
-
-        console.log(resultjson.value)
-
-        setJoke(resultjson.value)
+    async function loadrandom() {
+        const joke = await APIRandomJoke()
+        
+        setJoke(joke)
     }
+    
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -29,7 +26,7 @@ export function RandomScreen() {
             <Text>{joke}</Text>
 
             <Button title="API"
-                onPress={() => getapi()}
+                onPress={() => loadrandom()}
             />
         </View>
     );
