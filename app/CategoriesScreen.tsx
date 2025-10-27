@@ -8,7 +8,9 @@ export function CategoriesScreen() {
 
     const navigation = useNavigation()
 
-    const [categories, setCategories] = useState(["A", "B", "C"])
+    const [categories, setCategories] = useState<string[]>([])
+
+    const [errorloading, setErrorloading] = useState(false)
 
     useEffect(() => {
         loadCategories()
@@ -17,7 +19,13 @@ export function CategoriesScreen() {
     async function loadCategories() {
         const loadedcategories = await APICategories()
 
-        setCategories(loadedcategories)
+        if (loadedcategories == null) {
+            // FEL!!!
+            setErrorloading(true)
+        } else {
+            setCategories(loadedcategories)
+        }
+
     }
 
     return (
@@ -39,6 +47,13 @@ export function CategoriesScreen() {
                 onPress={() => navigation.navigate('Saved')}
             />
 
+            { categories.length == 0 && errorloading == false &&
+                <Text>Laddar...</Text>
+            }
+
+            { errorloading == true &&
+                <Text>ERROR LOADING!!!!!!!!</Text>
+            }
 
             <FlatList
                 data={categories}

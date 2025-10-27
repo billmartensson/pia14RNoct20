@@ -16,17 +16,33 @@ export async function APIRandomJoke() {
 }
 
 export async function APICategories() {
-    console.log("HÄMTA KATEGORIER!!")
 
-    // https://api.chucknorris.io/jokes/categories
+    try {
+        console.log("HÄMTA KATEGORIER!!")
 
-    const response = await fetch("https://api.chucknorris.io/jokes/categories")
+        // https://api.chucknorris.io/jokes/categories
 
-    const resultjson: string[] = await response.json()
+        const response = await fetch("https://api.chucknorris.io/jokes/categories")
 
-    console.log(resultjson)
+        console.log("HÄMTA KATEGORIER KLAR!!")
 
-    return resultjson
+        if (response.ok == false) {
+            return null
+        }
+
+        const resultjson: string[] = await response.json()
+
+        console.log("HÄMTA KATEGORIER JSON KLAR!!")
+
+        console.log(resultjson)
+
+        return resultjson
+    } catch(error) {
+        console.log(error)
+        return null
+    }
+
+
 }
 
 export async function APICategoryJoke(category: string) {
