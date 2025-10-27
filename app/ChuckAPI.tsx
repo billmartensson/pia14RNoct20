@@ -2,7 +2,7 @@ import { Chuckjoke } from "./Chuckjoke"
 
 
 export async function APIRandomJoke() {
-    console.log("HÄMTA FRÅN API!!")
+    console.log("HÄMTA RANDOM!!")
 
     // https://api.chucknorris.io/jokes/random
 
@@ -15,4 +15,17 @@ export async function APIRandomJoke() {
     return resultjson.value
 }
 
+export async function APICategories() {
+    console.log("HÄMTA KATEGORIER!!")
+
+    // https://api.chucknorris.io/jokes/categories
+
+    const response = await fetch("https://api.chucknorris.io/jokes/categories")
+
+    const resultjson: string[] = await response.json()
+
+    console.log(resultjson)
+
+    return resultjson
+}
 
