@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
 import { APICategoryJoke } from "./ChuckAPI";
+import { JokeBox } from "./JokeBox";
 
+type CategoryDetailScreenProps = {
+    route: {
+        params: {
+            category: string
+        }
+    }
+}
 
-export function CategoryDetailScreen({ route }) {
+export function CategoryDetailScreen({ route } : CategoryDetailScreenProps) {
 
     const { category } = route.params;
 
@@ -22,11 +30,10 @@ export function CategoryDetailScreen({ route }) {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>CATEGORY</Text>
 
             <Text>{category}</Text>
 
-            <Text>{joke}</Text>
+            <JokeBox joketext={joke} />
 
             <Button title="API"
                 onPress={() => loadrandom()}

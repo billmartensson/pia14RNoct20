@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, View } from "react-native";
 import { APIRandomJoke } from "./ChuckAPI";
+import { JokeBox } from "./JokeBox";
 
 
 export function RandomScreen() {
@@ -10,22 +11,21 @@ export function RandomScreen() {
 
     useEffect(() => {
         loadrandom()
-    },[])
+    }, [])
 
     async function loadrandom() {
         const joke = await APIRandomJoke()
-        
+
         setJoke(joke)
     }
-    
+
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>RANDOM</Text>
 
-            <Text>{joke}</Text>
+            <JokeBox joketext={joke} />
 
-            <Button title="API"
+            <Button title="New joke"
                 onPress={() => loadrandom()}
             />
         </View>

@@ -1,15 +1,23 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { Chuckjoke } from "./Chuckjoke";
+import { JokeBox } from "./JokeBox";
 
+type SearchDetailScreenProps = {
+    route: {
+        params: {
+            joke: Chuckjoke
+        }
+    }
+}
 
-export function SearchDetailScreen({ route }) {
+export function SearchDetailScreen({ route } : SearchDetailScreenProps) {
 
     const { joke } = route.params
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>SEARCH DETAIL</Text>
 
-            <Text>{ joke.value }</Text>
+            <JokeBox joketext={ joke.value } />
         </View>
     );
 }

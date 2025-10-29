@@ -21,18 +21,19 @@ export function SearchScreen() {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>SEARCH</Text>
 
-            <TextInput
-                style={{ backgroundColor: "lightgray", width: "100%" }}
-                onChangeText={setSearchtext}
-                value={searchtext}
-            />
+            <View style={{ width: "100%", flexDirection: "row" }}>
+                <TextInput
+                    style={{ backgroundColor: "lightgray", flex: 1 }}
+                    onChangeText={setSearchtext}
+                    value={searchtext}
+                />
 
-            <Button
-                title="Search"
-                onPress={searchjoke}
-            />
+                <Button
+                    title="Search"
+                    onPress={searchjoke}
+                />
+            </View>
 
             <FlatList
                 data={searchjokes}
@@ -40,7 +41,9 @@ export function SearchScreen() {
                     <TouchableOpacity
                         onPress={() => navigation.navigate('SearchDetail', { joke: item.item })}
                     >
-                        <Text>{item.item.value}</Text>
+                        <View style={{ marginHorizontal: 50, marginVertical: 10}}>
+                            <Text numberOfLines={1} style={{ }}>{item.item.value}</Text>
+                        </View>
                     </TouchableOpacity>
                 }
             />
