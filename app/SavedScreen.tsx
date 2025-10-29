@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { loadSavedJokes } from "./ChuckAPI";
 import { JokeBox } from "./JokeBox";
 
 
 export function SavedScreen() {
 
-    const [jokes, setJokes] = useState(["A", "B", "C"])
+    const [jokes, setJokes] = useState<string[]>(["A", "B", "C"])
 
     useEffect(() => {
         loadjokes()
@@ -20,14 +20,19 @@ export function SavedScreen() {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>SAVED</Text>
 
             <FlatList
                 style={{ width: "100%" }}
                 data={jokes}
                 renderItem={(item) =>
-                    <JokeBox joketext={item.item} />
+                    <JokeBox 
+                        joketext={item.item} 
+                        onDelete={() => {
+                            loadjokes()
+                        }}
+                    />
                 }
+                keyExtractor={(item) => item}
             />
         </View>
     );

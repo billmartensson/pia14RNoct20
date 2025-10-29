@@ -101,5 +101,9 @@ export async function checkSavedJoke(joketext : string) {
 }
 
 export async function deleteSavedJoke(joketext : string) {
+    var jokes = await loadSavedJokes()
 
+    jokes = jokes.filter(joke => joke !== joketext)
+
+    await AsyncStorage.setItem("savedjokes", JSON.stringify(jokes))
 }
