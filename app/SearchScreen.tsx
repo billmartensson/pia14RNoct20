@@ -9,7 +9,7 @@ export function SearchScreen() {
 
     const navigation = useNavigation()
 
-    const [searchjokes, setSearchjokes] = useState<Chuckjoke[]>([])
+    const [searchjokes, setSearchjokes] = useState<Chuckjoke[]>()
 
     const [searchtext, setSearchtext] = useState("")
 
@@ -35,14 +35,23 @@ export function SearchScreen() {
                 />
             </View>
 
+            { searchjokes == undefined &&
+                <Text>Type something to search</Text>
+            }
+
+            { searchjokes != undefined && searchjokes.length == 0 &&
+                <Text>No jokes found!!</Text>
+            }
+
             <FlatList
                 data={searchjokes}
-                renderItem={(item) =>
+                renderItem={({item, index}) =>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('SearchDetail', { joke: item.item })}
+                        style={{ backgroundColor: index%2==0 ? "white" : "lightgray" }}
+                        onPress={() => navigation.navigate('SearchDetail', { joke: item })}
                     >
-                        <View style={{ marginHorizontal: 50, marginVertical: 10}}>
-                            <Text numberOfLines={1} style={{ }}>{item.item.value}</Text>
+                        <View style={{ marginHorizontal: 50, marginVertical: 10 }}>
+                            <Text numberOfLines={1} style={{ }}>{item.value}</Text>
                         </View>
                     </TouchableOpacity>
                 }
@@ -51,3 +60,4 @@ export function SearchScreen() {
         </View>
     );
 }
+

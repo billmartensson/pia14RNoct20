@@ -52,7 +52,7 @@ export function CategoriesScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
                 <Button
                     title='RANDOM'
                     onPress={() => navigation.navigate('Random')}
@@ -80,13 +80,14 @@ export function CategoriesScreen() {
 
             <FlatList
                 style={{ width: "100%"}}
+                numColumns={3}
                 data={categories}
                 renderItem={(item) =>
                     <TouchableOpacity 
-                        style={{ }}
+                        style={{ flex: 1 }}
                         onPress={() => navigation.navigate('CategoryDetail', { category: item.item })}>
                         <View style={{ height: 50, justifyContent: "center", alignItems: "center" }}>
-                            <Text>{item.item}</Text>
+                            <Text>{item.item.charAt(0).toUpperCase() + item.item.slice(1)}</Text>
                         </View>
                     </TouchableOpacity>
                 }

@@ -29,7 +29,7 @@ export function JokeBox({ joketext, onDelete }: JokeBoxProps) {
     }
 
     return (
-        <View style={{ margin: 30, padding: 10, backgroundColor: "yellow" }}>
+        <View style={{ margin: 30, padding: 10, backgroundColor: isSaved ? "cyan" : "yellow" }}>
             <Text>{joketext}</Text>
 
             {isSaved == false &&
