@@ -1,5 +1,6 @@
 import { APIRandomJoke } from "@/api/ChuckAPI";
 import { JokeBox } from "@/components/JokeBox";
+import { JokeButton } from "@/components/JokeButton";
 import { useEffect, useState } from "react";
 import { Button, View } from "react-native";
 
@@ -28,6 +29,12 @@ export function RandomScreen() {
             <Button title="New joke"
                 onPress={() => loadrandom()}
             />
+
+            <JokeButton 
+                buttontext="New joke" 
+                buttonclick={() => loadrandom()} 
+            />
+
         </View>
     );
 }

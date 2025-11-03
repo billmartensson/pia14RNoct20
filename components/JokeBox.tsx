@@ -1,6 +1,7 @@
 import { checkSavedJoke, deleteSavedJoke, saveJoke } from "@/api/ChuckAPI";
+import { jokebackground, jokebordersaved } from "@/constants/jokecolors";
 import { useEffect, useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 type JokeBoxProps = {
     joketext: string,
@@ -29,7 +30,7 @@ export function JokeBox({ joketext, onDelete }: JokeBoxProps) {
     }
 
     return (
-        <View style={{ margin: 30, padding: 10, backgroundColor: isSaved ? "cyan" : "yellow" }}>
+        <View style={[ styles.jokeview, isSaved ? styles.jokeviewsaved : styles.jokeviewnotsaved ]}>
             <Text>{joketext}</Text>
 
             {isSaved == false &&
@@ -48,3 +49,20 @@ export function JokeBox({ joketext, onDelete }: JokeBoxProps) {
         </View>
     )
 }
+
+
+const styles = StyleSheet.create({
+    jokeview: {
+        margin: 30, 
+        padding: 10, 
+        backgroundColor: jokebackground,
+        borderWidth: 10,
+        borderRadius: 20,
+    },
+    jokeviewsaved: {
+        borderColor: jokebordersaved,
+    },
+    jokeviewnotsaved: {
+        borderColor: jokebackground,
+    },
+})
