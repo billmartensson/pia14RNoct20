@@ -2,7 +2,7 @@ import { APIRandomJoke } from "@/api/ChuckAPI";
 import { JokeBox } from "@/components/JokeBox";
 import { JokeButton } from "@/components/JokeButton";
 import { useEffect, useState } from "react";
-import { Button, View } from "react-native";
+import { View } from "react-native";
 
 
 export function RandomScreen() {
@@ -25,10 +25,6 @@ export function RandomScreen() {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
             <JokeBox joketext={joke} />
-
-            <Button title="New joke"
-                onPress={() => loadrandom()}
-            />
 
             <JokeButton 
                 buttontext="New joke" 

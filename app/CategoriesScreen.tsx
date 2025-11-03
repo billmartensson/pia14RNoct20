@@ -2,7 +2,7 @@ import { APICategories } from '@/api/ChuckAPI';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { Button, FlatList, Text, TouchableOpacity, View } from "react-native";
+import { Button, FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 
 export function CategoriesScreen() {
 
@@ -38,7 +38,7 @@ export function CategoriesScreen() {
     async function loadfruit() {
         const loadedfruit = await AsyncStorage.getItem("fruit")
 
-        if(loadedfruit != null) {
+        if (loadedfruit != null) {
             setFruit(loadedfruit)
         }
     }
@@ -52,7 +52,18 @@ export function CategoriesScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
+            <Image
+                source={require('@/assets/images/frog.jpg')}
+                style={{ 
+                    width: "100%", 
+                    height: 200, 
+                    backgroundColor: "red",
+                    resizeMode: "cover"
+                }}
+            />
+
+
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', width: '100%' }}>
                 <Button
                     title='RANDOM'
                     onPress={() => navigation.navigate('Random')}
@@ -79,11 +90,11 @@ export function CategoriesScreen() {
             }
 
             <FlatList
-                style={{ width: "100%"}}
+                style={{ width: "100%" }}
                 numColumns={3}
                 data={categories}
                 renderItem={(item) =>
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         style={{ flex: 1 }}
                         onPress={() => navigation.navigate('CategoryDetail', { category: item.item })}>
                         <View style={{ height: 50, justifyContent: "center", alignItems: "center" }}>
