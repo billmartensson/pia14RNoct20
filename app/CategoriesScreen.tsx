@@ -1,8 +1,8 @@
+import { APICategories } from '@/api/ChuckAPI';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { Button, FlatList, Text, TouchableOpacity, View } from "react-native";
-import { APICategories } from "./ChuckAPI";
 
 export function CategoriesScreen() {
 

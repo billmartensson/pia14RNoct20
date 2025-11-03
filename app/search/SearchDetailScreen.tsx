@@ -1,6 +1,6 @@
+import { JokeBox } from "@/components/JokeBox";
+import { Chuckjoke } from "@/models/Chuckjoke";
 import { View } from "react-native";
-import { Chuckjoke } from "./Chuckjoke";
-import { JokeBox } from "./JokeBox";
 
 type SearchDetailScreenProps = {
     route: {

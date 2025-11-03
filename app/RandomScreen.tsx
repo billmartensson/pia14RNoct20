@@ -1,7 +1,7 @@
+import { APIRandomJoke } from "@/api/ChuckAPI";
+import { JokeBox } from "@/components/JokeBox";
 import { useEffect, useState } from "react";
 import { Button, View } from "react-native";
-import { APIRandomJoke } from "./ChuckAPI";
-import { JokeBox } from "./JokeBox";
 
 
 export function RandomScreen() {

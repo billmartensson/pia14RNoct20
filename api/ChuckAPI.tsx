@@ -1,5 +1,5 @@
+import { Chuckjoke, ChuckSearchResult } from "@/models/Chuckjoke"
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import { Chuckjoke, ChuckSearchResult } from "./Chuckjoke"
 
 
 export async function APIRandomJoke() {

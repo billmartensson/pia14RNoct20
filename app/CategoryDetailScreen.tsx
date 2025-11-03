@@ -1,7 +1,7 @@
+import { APICategoryJoke } from "@/api/ChuckAPI";
+import { JokeBox } from "@/components/JokeBox";
 import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
-import { APICategoryJoke } from "./ChuckAPI";
-import { JokeBox } from "./JokeBox";
 
 type CategoryDetailScreenProps = {
     route: {

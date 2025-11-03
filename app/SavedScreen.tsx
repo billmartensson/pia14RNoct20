@@ -1,7 +1,7 @@
+import { loadSavedJokes } from "@/api/ChuckAPI";
+import { JokeBox } from "@/components/JokeBox";
 import { useEffect, useState } from "react";
 import { FlatList, View } from "react-native";
-import { loadSavedJokes } from "./ChuckAPI";
-import { JokeBox } from "./JokeBox";
 
 
 export function SavedScreen() {

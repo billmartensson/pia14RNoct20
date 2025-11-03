@@ -1,6 +1,6 @@
+import { checkSavedJoke, deleteSavedJoke, saveJoke } from "@/api/ChuckAPI";
 import { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
-import { checkSavedJoke, deleteSavedJoke, saveJoke } from "./ChuckAPI";
 
 type JokeBoxProps = {
     joketext: string,
