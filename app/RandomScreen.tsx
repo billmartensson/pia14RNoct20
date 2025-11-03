@@ -8,13 +8,14 @@ import { View } from "react-native";
 export function RandomScreen() {
 
 
-    const [joke, setJoke] = useState("NO JOKE")
+    const [joke, setJoke] = useState("")
 
     useEffect(() => {
         loadrandom()
     }, [])
 
     async function loadrandom() {
+        setJoke("")
         const joke = await APIRandomJoke()
 
         setJoke(joke)
@@ -26,9 +27,9 @@ export function RandomScreen() {
 
             <JokeBox joketext={joke} />
 
-            <JokeButton 
-                buttontext="New joke" 
-                buttonclick={() => loadrandom()} 
+            <JokeButton
+                buttontext="New joke"
+                buttonclick={() => loadrandom()}
             />
 
         </View>

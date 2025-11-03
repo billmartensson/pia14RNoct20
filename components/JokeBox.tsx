@@ -14,7 +14,7 @@ export function JokeBox({ joketext, onDelete }: JokeBoxProps) {
 
     useEffect(() => {
         checksaved()
-    }, [])
+    }, [joketext])
 
     async function checksaved() {
         const saved = await checkSavedJoke(joketext)
@@ -53,7 +53,8 @@ export function JokeBox({ joketext, onDelete }: JokeBoxProps) {
 
 const styles = StyleSheet.create({
     jokeview: {
-        margin: 30, 
+        width: "100%",
+        height: 200,
         padding: 10, 
         backgroundColor: jokebackground,
         borderWidth: 10,
